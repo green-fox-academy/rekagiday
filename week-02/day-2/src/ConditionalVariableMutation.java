@@ -38,7 +38,7 @@ public class ConditionalVariableMutation {
       c -= 1;
     }
     else if (isBonus) {
-      c = c ;
+      c = c;
     }
     System.out.println(c);
 
