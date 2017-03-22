@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 /**
  * Created by User on 2017. 03. 22.
  */
@@ -9,18 +10,17 @@ public class DrawPyramid {
     System.out.println("Please type a number to indicate how big your pyramid should be");
     int lines = scanner.nextInt();
 
-    for (int i = 1; i <= lines; i++) {
-      String a = new String();
-      for (int j = lines; j >= 1; j--) {
-        if (j > i) {
-          a += " ";
-        } else if (j == i) {
-          a += "*";
-        } else {
-          a += "**";
+    for (int i = 0; i < lines; i++) {
+      for (int k = i; k < lines; k++) {
+        if (k != lines - 1) {
+          System.out.print(" ");
         }
       }
-      System.out.println(a);
+      for (int j = 0; j <= i * 2; j++) {
+        System.out.print("*");
+      }
+      System.out.println();
     }
   }
 }
+
