@@ -5,14 +5,14 @@ import java.util.Arrays;
  */
 public class Reverse {
   public static void main(String[] args) {
-    int[] aj = {3, 4, 5, 6, 7};
-    int placeholder = aj[0];
+    int[] aj = {3, 4, 5, 6, 7, 8, 9, 10, 11};
 
-    aj[0] = aj[4];
-    aj[4] = placeholder;
-    placeholder = aj[1];
-    aj[1] = aj[3];
-    aj[3] = placeholder;
+    for (int i = 0; i < aj.length / 2; i++) {
+      int last = aj.length - i -1;
+      int placeholder = aj[i];
+      aj[i] = aj[last];
+      aj[last] = placeholder;
+    }
     System.out.println(Arrays.toString(aj));
   }
 }
