@@ -6,24 +6,12 @@ import java.util.Arrays;
 public class Colors {
   public static void main(String[] args) {
 
-    String[][] color = new String[3][5];
+    String[][] color = {
+        {"lime", "forest green", "olive", "pale green", "spring green"},
+        {"orange red", "red", "tomato"},
+        {"orchid", "violet", "pink", "hot pink"}
+    };
 
-
-        color[0][0] = "lime";
-        color[0][1] = "forest green";
-        color[0][2] = "olive";
-        color[0][3] = "pale green";
-        color[0][4] = "spring green";
-        color[1][0] = "orange red";
-        color[1][1] = "red";
-        color[1][2] = "tomato";
-        color[1][3] = "";
-        color[1][4] = "";
-        color[2][0] = "orchid";
-        color[2][1] = "violet";
-        color[2][2] = "pink";
-        color[2][3] = "hot pink";
-        color[2][4] = "";
     System.out.println(Arrays.toString(color[0]));
     System.out.println(Arrays.toString(color[1]));
     System.out.println(Arrays.toString(color[2]));
