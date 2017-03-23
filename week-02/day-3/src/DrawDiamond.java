@@ -26,10 +26,11 @@ public class DrawDiamond {
         }
 
         for (int j = 0; j < ((lines - i) * 2) - 1; j++ ) {
-          System.out.print("*");
-        }
+            System.out.print("*");
+          }
       }
       System.out.println();
+
     }
   }
 }
