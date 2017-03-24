@@ -8,20 +8,27 @@ public class GuessMyNumber {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    System.out.println("please define two numbers i can choose between!");
+    System.out.println("please define two numbers I can choose between!");
     int minNumber = scanner.nextInt();
     int maxNumber = scanner.nextInt();
 
     Random r = new Random();
-    int myNumber = r.nextInt(maxNumber-minNumber) + minNumber;
+    int myNumber = r.nextInt(maxNumber - minNumber) + minNumber;
 
-    System.out.println("Thanks! Now try to guess my number!");
+    System.out.println("Thanks! Now try to guess my number! You have 6 lives.");
     int yourNumber = scanner.nextInt();
+    int lives = 5;
+
     while (yourNumber != myNumber) {
-      if (yourNumber > myNumber) {
-        System.out.println("my number is lower, guess again");
+      if (lives == 0) {
+        System.out.println("You died.");
+        return;
+      } else if (yourNumber > myNumber) {
+        System.out.println("My number is lower. Lives remaining : " + (lives));
+        lives--;
       } else {
-        System.out.println("my number is higher, guess again");
+        System.out.println("My number is higher. Lives remaining : " + (lives));
+        lives--;
       }
       yourNumber = scanner.nextInt();
     }
