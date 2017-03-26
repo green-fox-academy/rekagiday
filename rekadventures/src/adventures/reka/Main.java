@@ -18,18 +18,18 @@ public class Main {
       int fieldSize = 10;
       char[][] field = new char[fieldSize][fieldSize];
 
-      for (int i = 0; i < fieldSize; i++) {
-        for (int j = 0; j < fieldSize; j++) {
-          if (i == userPosX && j == userPosY) {
-            field[i][j] = '*';
+      for (int y = 0; y < fieldSize; y++) {
+        for (int x = 0; x < fieldSize; x++) {
+          if (y == userPosY && x == userPosX) {
+            field[y][x] = '*';
           } else {
-            field[i][j] = '_';
+            field[y][x] = '_';
           }
         }
       }
-      for (int i = 0; i < fieldSize; i++) {
-        for (int j = 0; j < fieldSize; j++) {
-          System.out.print(field[i][j] + " ");
+      for (int y = 0; y < fieldSize; y++) {
+        for (int x = 0; x < fieldSize; x++) {
+          System.out.print(field[y][x] + " ");
         }
         System.out.println();
       }
@@ -41,11 +41,15 @@ public class Main {
 
       if (move.equals("w")) {
         System.out.println("You moved 1 step to west.");
+        userPosX--;
       } else if (move.equals("e")) {
         System.out.println("You moved 1 step to east.");
+        userPosX++;
       } else if (move.equals("n")) {
+        userPosY--;
         System.out.println("You moved 1 step to north.");
       } else if (move.equals("s")) {
+        userPosY++;
         System.out.println("You moved 1 step to south.");
       } else {
         System.out.println("Wrong direction. Please move or die. ");
