@@ -44,7 +44,7 @@ public class Main {
 
   private static int makeMove(String direction, int initialPosition) {
 
-    System.out.println("You moved 1 step to " + direction);
+    System.out.println("You moved 1 step to " + direction + ".");
 
     if (direction.equals("west") || direction.equals("north")) {
       return initialPosition - 1;
@@ -68,8 +68,7 @@ public class Main {
   }
 
   private static Map<String, Integer> moveUser(String move, int userPosY, int userPosX,
-      int fieldSize,
-      char[][] field, int userHp) {
+      int fieldSize, char[][] field, int userHp) {
 
     if (move.equals("w") && validateMove("west", userPosY, userPosX, fieldSize)) {
       userPosX = makeMove("west", userPosX);
