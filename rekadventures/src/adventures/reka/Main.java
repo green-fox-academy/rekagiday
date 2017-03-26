@@ -34,12 +34,14 @@ public class Main {
         System.out.println();
       }
 
-      System.out.println("Please let me know which way you want to go! North, east, south or west? (Type n, e, s or w)");
+      System.out.println("Please let me know which way you want to go! North, east, south or west? (Type n, e, s or w). Type exit to exit. ");
       String move = scanner.nextLine();
 
 
 
-      if (move.equals("w")) {
+      if (move.equals("exit")) {
+        break;
+      } else if (move.equals("w")) {
         System.out.println("You moved 1 step to west.");
         userPosX--;
       } else if (move.equals("e")) {
