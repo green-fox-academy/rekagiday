@@ -8,10 +8,13 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     System.out.println("please enter your name");
     String name = scanner.nextLine();
-    System.out.println("Hello, " + name + "! This is where you start. (*). Try to find the treasure chest (#). Avoid the traps (@) and fight monsters (M)!");
+    System.out.println("Hello, " + name
+        + "! This is where you start. (*). Try to find the treasure chest (#). Avoid the traps (@) and fight monsters (M)!");
 
     int userPosX = 0;
     int userPosY = 0;
+    int[] trapPosX = {3, 2, 4, 8};
+    int[] trapPosY = {1, 5, 7, 2};
 
     while (true) {
 
@@ -23,7 +26,13 @@ public class Main {
           if (y == userPosY && x == userPosX) {
             field[y][x] = '*';
           } else {
-            field[y][x] = '_';
+            for (int trapIndex = 0; trapIndex < trapPosX.length; trapIndex++) {
+              if (y == trapPosY[trapIndex] && x == trapPosX[trapIndex]) {
+                field[y][x] = '@';
+              } else if (field[y][x] != '@' && field[y][x] != '*' ) {
+                field[y][x] = '_';
+              }
+            }
           }
         }
       }
@@ -34,10 +43,9 @@ public class Main {
         System.out.println();
       }
 
-      System.out.println("Please let me know which way you want to go! North, east, south or west? (Type n, e, s or w). Type exit to exit. ");
+      System.out.println("Please let me know which way you want to go! "
+          + "North, east, south or west? (Type n, e, s or w). Type exit to exit. ");
       String move = scanner.nextLine();
-
-
 
       if (move.equals("exit")) {
         break;
@@ -59,3 +67,4 @@ public class Main {
     }
   }
 }
+
