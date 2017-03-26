@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class Main {
 
+  static final char SYMBOL_USER = '*';
+  static final char SYMBOL_TRAP = '@';
+  static final char SYMBOL_FIELD = '_';
+
+
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     System.out.println("please enter your name");
@@ -24,13 +29,13 @@ public class Main {
       for (int y = 0; y < fieldSize; y++) {
         for (int x = 0; x < fieldSize; x++) {
           if (y == userPosY && x == userPosX) {
-            field[y][x] = '*';
+            field[y][x] = SYMBOL_USER;
           } else {
             for (int trapIndex = 0; trapIndex < trapPosX.length; trapIndex++) {
               if (y == trapPosY[trapIndex] && x == trapPosX[trapIndex]) {
-                field[y][x] = '@';
-              } else if (field[y][x] != '@' && field[y][x] != '*' ) {
-                field[y][x] = '_';
+                field[y][x] = SYMBOL_TRAP;
+              } else if (field[y][x] != SYMBOL_TRAP && field[y][x] != SYMBOL_USER ) {
+                field[y][x] = SYMBOL_FIELD;
               }
             }
           }
