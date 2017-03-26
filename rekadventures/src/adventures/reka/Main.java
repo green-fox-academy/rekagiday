@@ -18,10 +18,11 @@ public class Main {
 
     int userPosX = 0;
     int userPosY = 0;
+    int userHp = 1;
     int[] trapPosX = {3, 2, 4, 8};
     int[] trapPosY = {1, 5, 7, 2};
 
-    while (true) {
+    while (userHp > 0) {
 
       int fieldSize = 10;
       char[][] field = new char[fieldSize][fieldSize];
@@ -67,9 +68,15 @@ public class Main {
         userPosY++;
         System.out.println("You moved 1 step to south.");
       } else {
-        System.out.println("Wrong direction. Please move or die. ");
+        System.out.println("Wrong direction. Please move or exit. ");
+      }
+
+      if (field[userPosY][userPosX] == SYMBOL_TRAP){
+        userHp--;
+        System.out.println("You stepped on a trap and lost 1 hp! Your current hp is: " + userHp);
       }
     }
+    System.out.println("You died! :( NOOB");
   }
 }
 
