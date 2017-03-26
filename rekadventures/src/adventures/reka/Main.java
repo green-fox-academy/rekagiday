@@ -18,7 +18,7 @@ public class Main {
 
     int userPosX = 0;
     int userPosY = 0;
-    int userHp = 1;
+    int userHp = 3;
     int[] trapPosX = {3, 2, 4, 8};
     int[] trapPosY = {1, 5, 7, 2};
 
@@ -35,7 +35,7 @@ public class Main {
             for (int trapIndex = 0; trapIndex < trapPosX.length; trapIndex++) {
               if (y == trapPosY[trapIndex] && x == trapPosX[trapIndex]) {
                 field[y][x] = SYMBOL_TRAP;
-              } else if (field[y][x] != SYMBOL_TRAP && field[y][x] != SYMBOL_USER ) {
+              } else if (field[y][x] != SYMBOL_TRAP && field[y][x] != SYMBOL_USER) {
                 field[y][x] = SYMBOL_FIELD;
               }
             }
@@ -56,22 +56,43 @@ public class Main {
       if (move.equals("exit")) {
         break;
       } else if (move.equals("w")) {
-        System.out.println("You moved 1 step to west.");
-        userPosX--;
+        if (userPosX > 0) {
+          System.out.println("You moved 1 step to west.");
+          userPosX--;
+        } else {
+          System.out.println("You reached the border of the playfield. "
+              + "Please move in any other available direction.");
+        }
       } else if (move.equals("e")) {
-        System.out.println("You moved 1 step to east.");
-        userPosX++;
+        if (userPosX < fieldSize - 1) {
+          System.out.println("You moved 1 step to east.");
+          userPosX++;
+        } else {
+          System.out.println("You reached the border of the playfield. "
+              + "Please move in any other available direction.");
+        }
+
       } else if (move.equals("n")) {
-        userPosY--;
-        System.out.println("You moved 1 step to north.");
+        if (userPosY > 0) {
+          userPosY--;
+          System.out.println("You moved 1 step to north.");
+        } else {
+          System.out.println("You reached the border of the playfield. "
+              + "Please move in any other available direction.");
+        }
       } else if (move.equals("s")) {
-        userPosY++;
-        System.out.println("You moved 1 step to south.");
+        if (userPosY < fieldSize - 1) {
+          userPosY++;
+          System.out.println("You moved 1 step to south.");
+        } else {
+          System.out.println("You reached the border of the playfield. "
+              + "Please move in any other available direction.");
+        }
       } else {
         System.out.println("Wrong direction. Please move or exit. ");
       }
 
-      if (field[userPosY][userPosX] == SYMBOL_TRAP){
+      if (field[userPosY][userPosX] == SYMBOL_TRAP) {
         userHp--;
         System.out.println("You stepped on a trap and lost 1 hp! Your current hp is: " + userHp);
       }
