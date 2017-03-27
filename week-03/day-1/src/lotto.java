@@ -1,16 +1,17 @@
+import java.security.Key;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.security.Key;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by User on 2017. 03. 26..
@@ -31,7 +32,7 @@ public class lotto {
           if (map.containsKey(weekValues[i])) {
             map.put(weekValues[i], map.get(weekValues[i]) + 1);
           } else {
-            map.put(weekValues[i], 0);
+            map.put(weekValues[i], 1);
           }
         }
       }
@@ -47,16 +48,15 @@ public class lotto {
         }
       });
 
+      int counter = 0;
       for (Entry<String, Integer> entry : list) {
-
-        if (entry.getValue() >= 192) {
+        if (counter < 5) {
           System.out.println(entry.getKey() + " : " + entry.getValue());
+        } else {
+          break;
         }
-        Map<Integer, String> reverseMap = new HashMap<>();
-        reverseMap.put(entry.getValue(), entry.getKey());
+        counter++;
       }
-
-
 
     } catch (IOException e) {
       e.printStackTrace();
