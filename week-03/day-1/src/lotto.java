@@ -5,6 +5,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Created by User on 2017. 03. 26..
@@ -18,20 +19,22 @@ public class lotto {
     try {
       List<String> lines = Files.readAllLines(filePath);
       Map<String, Integer> map = new HashMap<>();
-      int numberAppears = 0;
 
       for (String weeks : lines) {
         String[] weekValues = weeks.split(";");
-        // System.out.println(weeks);
         for (int i = weekValues.length - 5; i < weekValues.length; i++) {
-
-          map.put(weekValues[i], numberAppears);
           if (map.containsKey(weekValues[i])) {
-            map.put(weekValues[i], numberAppears++);
+            map.put(weekValues[i], map.get(weekValues[i]) + 1);
+          } else {
+            map.put(weekValues[i], 0);
           }
-          System.out.println(map.get(weekValues[i]) + " " + numberAppears);
         }
       }
+
+      for (Entry myEntry: map.entrySet()) {
+        System.out.println(myEntry.getKey() + " " + myEntry.getValue());
+      }
+      
     } catch (IOException e) {
       e.printStackTrace();
     }
