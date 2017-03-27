@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -49,11 +50,14 @@ public class lotto {
       for (Entry<String, Integer> entry : list) {
 
         if (entry.getValue() >= 192) {
-
           System.out.println(entry.getKey() + " : " + entry.getValue());
         }
-
+        Map<Integer, String> reverseMap = new HashMap<>();
+        reverseMap.put(entry.getValue(), entry.getKey());
       }
+
+
+
     } catch (IOException e) {
       e.printStackTrace();
     }
