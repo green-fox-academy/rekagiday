@@ -1,5 +1,3 @@
-import static jdk.nashorn.internal.objects.NativeString.replace;
-
 /**
  * Created by User on 2017. 03. 30..
  */
