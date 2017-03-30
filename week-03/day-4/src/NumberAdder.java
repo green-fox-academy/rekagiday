@@ -10,13 +10,10 @@ public class NumberAdder {
   private static int add(int n) {
     if (n == 0) {
       return 0;
-    }
-    else {
+    } else {
       int result = n + add(n - 1);
       System.out.println(n);
       return result;
     }
-
-
   }
 }
