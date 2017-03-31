@@ -1,5 +1,4 @@
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -20,7 +19,6 @@ public class SierpinskyCarpet {
 
   private static void fractals(Graphics graphics, int x, int y, int i) {
     if (i > 0) {
-      graphics.setColor(new Color(randomColor()));
       graphics.fillRect(x, y, i, i);
       fractals(graphics, x - (i * 2 / 3), y - (i * 2 / 3), i / 3);
       fractals(graphics, x + (i / 3), y - (i * 2 / 3), i / 3);
@@ -35,10 +33,6 @@ public class SierpinskyCarpet {
     }
   }
 
-  public static int randomColor() {
-    int randomColor = (int) (Math.random() * 16777216);
-    return randomColor;
-  }
 
 
   public static void main(String[] args) {
