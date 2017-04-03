@@ -38,22 +38,12 @@ public class Dice {
     Dice myDice = new Dice();
     myDice.getCurrent();
     myDice.roll();
-    myDice.getCurrent();
-    myDice.getCurrent(5);
-    myDice.reroll();
-    myDice.getCurrent();
-    myDice.reroll(4);
-    myDice.getCurrent();
 
-    int counter = 0;
-    while (counter != 6) {
-      for (int i = 0; i < 6; i++) {
-        if (myDice.getCurrent(i) == 6) {
-          counter++;
-        } else {
-          myDice.reroll(i);
-        }
+    for (int i = 0; i < 6; i++) {
+      while (myDice.getCurrent(i) != 6) {
+        myDice.reroll(i);
       }
+
     }
     System.out.println(Arrays.toString(myDice.getCurrent()));
   }
