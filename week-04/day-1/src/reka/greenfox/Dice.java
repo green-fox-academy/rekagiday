@@ -54,12 +54,8 @@ public class Dice {
           myDice.reroll(i);
         }
       }
-
     }
-
     System.out.println(Arrays.toString(myDice.getCurrent()));
   }
-
 }
-
 
