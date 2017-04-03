@@ -23,6 +23,13 @@ public class BlogPost {
 
   }
 
-
-
+  @Override
+  public String toString() {
+    return "BlogPost{" +
+        "authorName='" + authorName + '\'' +
+        ", title='" + title + '\'' +
+        ", text='" + text + '\'' +
+        ", publicationDate='" + publicationDate + '\'' +
+        '}';
+  }
 }
