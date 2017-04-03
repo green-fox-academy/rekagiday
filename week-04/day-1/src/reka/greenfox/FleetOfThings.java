@@ -22,3 +22,4 @@ public class FleetOfThings {
     System.out.println(fleet);
   }
 }
+
