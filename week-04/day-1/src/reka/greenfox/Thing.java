@@ -20,5 +20,3 @@ public class Thing {
     return (completed ? "[x] " : "[ ] ") + name;
   }
 }
-
-

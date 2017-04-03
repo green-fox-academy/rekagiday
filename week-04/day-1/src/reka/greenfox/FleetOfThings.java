@@ -1,9 +1,7 @@
 package reka.greenfox;
-
 /**
  * Created by User on 2017. 04. 03..
  */
-
 public class FleetOfThings {
 
   public static void main(String[] args) {
@@ -24,5 +22,3 @@ public class FleetOfThings {
     System.out.println(fleet);
   }
 }
-
-
