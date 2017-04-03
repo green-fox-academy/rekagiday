@@ -43,7 +43,6 @@ public class Dice {
       while (myDice.getCurrent(i) != 6) {
         myDice.reroll(i);
       }
-
     }
     System.out.println(Arrays.toString(myDice.getCurrent()));
   }
