@@ -20,6 +20,14 @@ public class Main {
             + "he wasn’t really into the whole organizer profile thing.",
         "2017.03.28.");
 
+    System.out.println(first);
+    System.out.println(second);
+    System.out.println(third);
+
+    System.out.println(firstPost);
+    System.out.println(secondPost);
+    System.out.println(thirdPost);
+
   }
 }
 
