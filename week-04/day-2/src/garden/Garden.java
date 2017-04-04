@@ -1,23 +1,58 @@
 package garden;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import reka.greenfox.Student;
 
 /**
  * Created by User on 2017. 04. 04..
  */
 public class Garden {
 
-  public static void main(String[] args) {
+  int watercount = 0;
 
-  //  List<Garden> myGarden = new ArrayList<>();
+  List<Plant> myGarden = new ArrayList<>();
 
-    Tree tree1 = new Tree("orange");
-    Tree tree2 = new Tree("purple");
+  public void addFlowers(Flower flower) {
+    this.myGarden.add(flower);
+  }
 
-    Flower flower1 = new Flower("yellow");
-    Flower flower2 = new Flower("blue");
+  public void addTrees(Tree tree) {
+    this.myGarden.add(tree);
+  }
 
+  public void info() {
+    for (Plant plant : myGarden) {
+      if (plant.waterState < plant.needsWater) {
+        System.out.print("The " + plant.getColor() + " " +
+            " needs water. Current water state: " + plant.waterState + "\n");
+      } else {
+        System.out.print("The " + plant.getColor() + " " + plant.getClass()
+            + " doesn't need water. Current water state: "
+            + plant.waterState + "  \n");
+      }
+    }
+    System.out.println();
+  }
+
+  public void addWater(int waterTotal) {
+
+    watercount = 0;
+
+    System.out.println("The garden has been watered with: " + waterTotal );
+
+    for (Plant plant : myGarden) {
+      if (plant.waterState < plant.needsWater) {
+        watercount++;
+      }
+    }
+
+    for (Plant plant : myGarden) {
+      if (plant.waterState < plant.needsWater) {
+        plant.waterState += ((waterTotal / watercount) * plant.waterAbsorption);
+      }
+    }
   }
 }
 
