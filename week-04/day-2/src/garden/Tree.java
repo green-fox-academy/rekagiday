@@ -11,10 +11,8 @@ public class Tree extends Plant {
     this.waterState = 0;
     this.waterAbsorption = 0.4;
     this.needsWater = 10;
+    this.type = "tree";
   }
 
-  public String getType() {
-    return "tree";
-  }
 }
 

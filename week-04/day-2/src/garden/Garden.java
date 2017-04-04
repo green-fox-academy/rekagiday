@@ -25,10 +25,10 @@ public class Garden {
   public void info() {
     for (Plant plant : myGarden) {
       if (plant.waterState < plant.needsWater) {
-        System.out.print("The " + plant.getColor() + " " +
+        System.out.print("The " + plant.getColor() + " " + plant.type +
             " needs water. Current water state: " + plant.waterState + "\n");
       } else {
-        System.out.print("The " + plant.getColor() + " " + plant.getClass()
+        System.out.print("The " + plant.getColor() + " " + plant.type
             + " doesn't need water. Current water state: "
             + plant.waterState + "  \n");
       }

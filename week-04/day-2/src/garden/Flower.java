@@ -10,6 +10,7 @@ public class Flower extends Plant {
     this.waterState = 0;
     this.waterAbsorption = 0.75;
     this.needsWater = 5;
+    this.type = "flower";
   }
 
   public void useWater(int waterAmount) {
