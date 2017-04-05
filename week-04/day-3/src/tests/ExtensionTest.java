@@ -10,33 +10,33 @@ class ExtensionTest {
   Extension extension = new Extension();
 
   @Test
-  void testAdd_2and3is5() {
-    assertEquals(5, extension.add(2, 3));
+  void testAdd_4and5is9() {
+    assertEquals(9, extension.add(4, 5));
   }
 
   @Test
-  void testAdd_1and4is5() {
-    assertEquals(5, extension.add(1, 4));
+  void testAdd_1and1is2() {
+    assertEquals(2, extension.add(1, 1));
   }
 
   @Test
   void testMaxOfThree_first() {
-    assertEquals(5, extension.maxOfThree(5, 4, 3));
+    assertEquals(3, extension.maxOfThree(2, 1, 3));
   }
 
   @Test
   void testMaxOfThree_third() {
-    assertEquals(5, extension.maxOfThree(3, 4, 5));
+    assertEquals(5, extension.maxOfThree(4, 5, 3));
   }
 
   @Test
   void testMedian_four() {
-    assertEquals(5, extension.median(Arrays.asList(7,5,3,5)));
+    assertEquals(4.5, extension.median(Arrays.asList(1,4,100,5)));
   }
 
   @Test
   void testMedian_five() {
-    assertEquals(3, extension.median(Arrays.asList(1,2,3,4,5)));
+    assertEquals(3, extension.median(Arrays.asList(3,2,1,4,5)));
   }
 
   @Test
@@ -51,11 +51,11 @@ class ExtensionTest {
 
   @Test
   void testTranslate_bemutatkozik() {
-    assertEquals("bevemuvutavatkovozivik", extension.translate("bemutatkozik"));
+    assertEquals("teveveve", extension.translate("teve"));
   }
 
   @Test
   void testTranslate_kolbice() {
-    assertEquals("lavagovopuvus", extension.translate("lagopus"));
+    assertEquals("kivicsivi", extension.translate("kicsi"));
   }
 }
