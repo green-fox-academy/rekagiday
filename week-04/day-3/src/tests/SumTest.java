@@ -28,7 +28,7 @@ public class SumTest {
   @Test
   void testNull() {
     list = null;
-    assertEquals(null, list);
+    assertEquals(0, summedList.sum(list));
   }
 }
 
