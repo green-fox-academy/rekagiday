@@ -21,6 +21,14 @@ public class SumTest {
 
   @Test
   void testNumbers() {
-    assertEquals(23, (summedList.sum(list)));
+    list.add(3);
+    assertEquals(3, summedList.sum(list));
+  }
+
+  @Test
+  void testNull() {
+    list = null;
+    assertEquals(null, list);
   }
 }
+

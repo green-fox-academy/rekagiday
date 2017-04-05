@@ -7,8 +7,7 @@ import java.util.ArrayList;
  */
 public class Number {
 
-
-  public int sum(ArrayList<Integer> numbers){
+  int sum(ArrayList<Integer> numbers){
 
     int total = 0;
 
@@ -17,5 +16,5 @@ public class Number {
     }
     return total;
   }
-
 }
+
