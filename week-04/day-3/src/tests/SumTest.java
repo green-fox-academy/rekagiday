@@ -1,17 +1,26 @@
 package tests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SumTest {
 
-  private int sum(ArrayList<Integer> numbers){
-    int sum = 0;
+  ArrayList<Integer> list;
+  Number summedList;
 
-    for (int i = 0; i < numbers.size(); i++) {
-      sum += numbers.get(i);
-    }
-     return sum;
+  @BeforeEach
+  void initTest() {
+    list = new ArrayList<>();
+    summedList = new Number();
   }
 
+  @Test
+  void testNumbers() {
+    assertEquals(23, (summedList.sum(list)));
+  }
 }
