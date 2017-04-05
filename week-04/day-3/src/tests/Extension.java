@@ -4,9 +4,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by User on 2017. 04. 05..
- */
 public class Extension {
 
   int add(int a, int b) {
@@ -50,3 +47,4 @@ public class Extension {
     return teve;
   }
 }
+
