@@ -1,4 +1,5 @@
 package tests;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -31,12 +32,12 @@ class ExtensionTest {
 
   @Test
   void testMedian_four() {
-    assertEquals(4.5, extension.median(Arrays.asList(1,4,100,5)));
+    assertEquals(4.5, extension.median(Arrays.asList(1d, 4d, 100d, 5d)));
   }
 
   @Test
   void testMedian_five() {
-    assertEquals(3, extension.median(Arrays.asList(3,2,1,4,5)));
+    assertEquals(4, extension.median(Arrays.asList(3., 2., 4., 5., 6.)));
   }
 
   @Test
@@ -51,7 +52,7 @@ class ExtensionTest {
 
   @Test
   void testTranslate_bemutatkozik() {
-    assertEquals("teveveve", extension.translate("teve"));
+    assertEquals("avaszttaval", extension.translate("asztal"));
   }
 
   @Test
