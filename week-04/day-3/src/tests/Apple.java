@@ -5,7 +5,7 @@ package tests;
  */
 public class Apple {
 
-  public String getApple() {
+  public static String getApple() {
     return "apple";
   }
 }
