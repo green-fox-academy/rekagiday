@@ -2,9 +2,6 @@ package tests;
 
 import java.util.ArrayList;
 
-/**
- * Created by User on 2017. 04. 05..
- */
 public class Number {
 
   int sum(ArrayList<Integer> numbers) {
