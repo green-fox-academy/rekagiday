@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.lang.*;
 
 /**
@@ -6,11 +7,11 @@ import java.lang.*;
  */
 public class Hero extends Character {
 
-
+  int posX;
+  int posY;
 
   void drawHero(Graphics graphics){
-
-
+    PositionedImage hero = new PositionedImage("assets/hero-down.png", posX, posY);
   }
 
 }

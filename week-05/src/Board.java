@@ -8,25 +8,29 @@ public class Board extends JComponent implements KeyListener {
   int posX;
   int posY;
   Tile tiles;
+  int tileSize;
+
 
   public Board() {
     posX = 0;
     posY = 0;
-
+    tileSize = 72;
     setPreferredSize(new Dimension(720, 720));
     setVisible(true);
   }
+
 
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
     PositionedImage hero = new PositionedImage("assets/hero-down.png", posX, posY);
+    PositionedImage boss = new PositionedImage("assets/boss.png", tileSize * 9, 0);
     tiles = new Tile();
     tiles.fillBoard("assets/level1.csv");
     tiles.drawTile(graphics);
+    boss.draw(graphics);
     hero.draw(graphics);
   }
-
 
   public static void main(String[] args) {
     JFrame frame = new JFrame("RPG Game");
@@ -48,14 +52,19 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyReleased(KeyEvent e) {
-    if (e.getKeyCode() == KeyEvent.VK_UP) {
-      posY -= 72;
-    } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      posY += 72;
-    } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      posX -= 72;
-    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      posX += 72;
+    int currentPosX = posX;
+    int currentPosY = posY;
+    int x = currentPosX / tileSize;
+    int y = currentPosY / tileSize;
+
+    if (e.getKeyCode() == KeyEvent.VK_UP && currentPosY >= tileSize) {
+      posY -= tileSize;
+    } else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentPosY < tileSize * 9) {
+      posY += tileSize;
+    } else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentPosX >= tileSize) {
+      posX -= tileSize;
+    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentPosX < tileSize * 9) {
+      posX += tileSize;
     }
     repaint();
   }
