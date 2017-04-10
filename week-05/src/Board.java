@@ -7,6 +7,7 @@ public class Board extends JComponent implements KeyListener {
 
   int posX;
   int posY;
+  Tile tiles;
 
   public Board() {
     posX = 0;
@@ -19,11 +20,11 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-    PositionedImage image = new PositionedImage("assets/hero-down.png", posX, posY
-    );
-    Tile tiles = new Tile();
+    Hero hero = new Hero();
+    tiles = new Tile();
+    tiles.fillBoard("assets/level1.csv");
     tiles.drawTile(graphics);
-    image.draw(graphics);
+    hero.drawHero(graphics);
   }
 
 
