@@ -26,7 +26,6 @@ public class Tile extends Board {
       for (int i = 0; i < lines.size(); i++) {
         String[] line = lines.get(i).split(" ");
         board[i] = line;
-        System.out.println(Arrays.toString(board[i]));
       }
     } catch (IOException e) {
       e.printStackTrace();

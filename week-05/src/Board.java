@@ -20,11 +20,11 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-    Hero hero = new Hero();
+    PositionedImage hero = new PositionedImage("assets/hero-down.png", posX, posY);
     tiles = new Tile();
     tiles.fillBoard("assets/level1.csv");
     tiles.drawTile(graphics);
-    hero.drawHero(graphics);
+    hero.draw(graphics);
   }
 
 

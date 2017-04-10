@@ -9,8 +9,7 @@ public class Hero extends Character {
 
 
   void drawHero(Graphics graphics){
-    PositionedImage hero = new PositionedImage("assets/hero-down.png", 0, 0
-    );
+
 
   }
 
