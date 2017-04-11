@@ -48,10 +48,10 @@ public class Tile extends Board {
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 10; j++) {
         if (!isWall(i, j)) {
-          GameObject tile = new GameObject("assets/floor.png", j * size, i * size);
+          GameObject tile = new GameObject("assets/floor.png", i * size, j * size);
           tile.draw(graphics);
         } else {
-          GameObject tile = new GameObject("assets/wall.png", j * size, i * size);
+          GameObject tile = new GameObject("assets/wall.png", i * size, j * size);
           tile.draw(graphics);
         }
       }

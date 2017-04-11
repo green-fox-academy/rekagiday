@@ -53,13 +53,16 @@ public class Board extends JComponent implements KeyListener {
     int x = currentPosX / tileSize;
     int y = currentPosY / tileSize;
 
-    if (e.getKeyCode() == KeyEvent.VK_UP && currentPosY >= tileSize) {
+    if (e.getKeyCode() == KeyEvent.VK_UP && currentPosY >= tileSize && !tiles.isWall(x, y - 1)) {
       hero.moveUp();
-    } else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentPosY < tileSize * 9) {
+    } else if (e.getKeyCode() == KeyEvent.VK_DOWN && currentPosY < tileSize * 9 && !tiles
+        .isWall(x, y + 1)) {
       hero.moveDown();
-    } else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentPosX >= tileSize) {
+    } else if (e.getKeyCode() == KeyEvent.VK_LEFT && currentPosX >= tileSize && !tiles
+        .isWall(x - 1, y)) {
       hero.moveLeft();
-    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentPosX < tileSize * 9) {
+    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentPosX < tileSize * 9 && !tiles
+        .isWall(x + 1, y)) {
       hero.moveRight();
     }
     repaint();
