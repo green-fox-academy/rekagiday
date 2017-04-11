@@ -19,7 +19,6 @@ public class Tile extends Board {
   Path path;
 
   void fillBoard(String levelPath) {
-
     this.path = Paths.get(levelPath);
     try {
       List<String> lines = Files.readAllLines(path);
@@ -31,7 +30,6 @@ public class Tile extends Board {
       e.printStackTrace();
     }
   }
-
 
   public Tile() {
   }
@@ -50,10 +48,10 @@ public class Tile extends Board {
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 10; j++) {
         if (!isWall(i, j)) {
-          PositionedImage tile = new PositionedImage("assets/floor.png", j * size, i * size);
+          GameObject tile = new GameObject("assets/floor.png", j * size, i * size);
           tile.draw(graphics);
         } else {
-          PositionedImage tile = new PositionedImage("assets/wall.png", j * size, i * size);
+          GameObject tile = new GameObject("assets/wall.png", j * size, i * size);
           tile.draw(graphics);
         }
       }

@@ -7,11 +7,30 @@ import java.lang.*;
  */
 public class Hero extends Character {
 
-  int posX;
-  int posY;
+  int tileSize = 72;
 
-  void drawHero(Graphics graphics){
-    PositionedImage hero = new PositionedImage("assets/hero-down.png", posX, posY);
+  public Hero(int posX, int posY) {
+    super("assets/hero-down.png", posX, posY);
   }
 
+
+  public void moveUp() {
+    this.posY -= tileSize;
+    setImage("assets/hero-up.png");
+  }
+
+  public void moveDown() {
+    this.posY += tileSize;
+    setImage("assets/hero-down.png");
+  }
+
+  public void moveLeft() {
+    this.posX -= tileSize;
+    setImage("assets/hero-left.png");
+  }
+
+  public void moveRight() {
+    this.posX += tileSize;
+    setImage("assets/hero-Right.png");
+  }
 }
