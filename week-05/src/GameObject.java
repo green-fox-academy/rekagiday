@@ -8,10 +8,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class GameObject {
+public class GameObject{
+
+
+  int tileSize, posX, posY;
+  int level;
+  int d6;
 
   BufferedImage image;
-  int posX, posY;
 
   public GameObject() {
   }
@@ -19,6 +23,9 @@ public class GameObject {
   public GameObject(String filename, int posX, int posY) {
     this.posX = posX;
     this.posY = posY;
+    this.tileSize = 72;
+    this.level = 1;
+    d6 = (int) (Math.random() *6);
     try {
       image = ImageIO.read(new File(filename));
     } catch (IOException e) {
@@ -39,4 +46,13 @@ public class GameObject {
       e.printStackTrace();
     }
   }
+
+
+
+
+
 }
+
+
+
+
