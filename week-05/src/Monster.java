@@ -20,6 +20,7 @@ public class Monster extends Character {
   public void moveMonster(Tile tiles) {
     int x = this.getPosX() / tileSize;
     int y = this.getPosY() / tileSize;
+
     boolean step = false;
 
     while (!step) {
@@ -27,14 +28,14 @@ public class Monster extends Character {
       if (directionRandomizer == 0 && y >= 1 && !tiles.isWall(x, y - 1)) {
         moveUp();
         step = true;
+      } else if (directionRandomizer == 1 && x > 1 && !tiles.isWall(x - 1, y)) {
+        moveLeft();
+        step = true;
       } else if (directionRandomizer == 2 && y < 9 && !tiles.isWall(x, y + 1)) {
         moveDown();
         step = true;
       } else if (directionRandomizer == 3 && x < 9 && !tiles.isWall(x + 1, y)) {
         moveRight();
-        step = true;
-      } else if (directionRandomizer == 1 && x > 1 && !tiles.isWall(x - 1, y)) {
-        moveLeft();
         step = true;
       }
     }

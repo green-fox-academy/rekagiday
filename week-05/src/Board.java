@@ -68,32 +68,32 @@ public class Board extends JComponent implements KeyListener {
     if (e.getKeyCode() == KeyEvent.VK_UP && hero.posY >= tileSize && !tiles.isWall(x, y - 1)) {
       hero.moveUp();
       if (hero.moveCount % 2 == 0) {
-        for (int i = 0; i < monsters.size(); i++) {
-          monsters.get(i).moveMonster(tiles);
+        for (Monster monster : monsters) {
+          monster.moveMonster(tiles);
         }
       }
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN && hero.posY < tileSize * 9 && !tiles
         .isWall(x, y + 1)) {
       hero.moveDown();
       if (hero.moveCount % 2 == 0) {
-        for (int i = 0; i < monsters.size(); i++) {
-          monsters.get(i).moveMonster(tiles);
+        for (Monster monster : monsters) {
+          monster.moveMonster(tiles);
         }
       }
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT && hero.posX >= tileSize && !tiles
         .isWall(x - 1, y)) {
       hero.moveLeft();
       if (hero.moveCount % 2 == 0) {
-        for (int i = 0; i < monsters.size(); i++) {
-          monsters.get(i).moveMonster(tiles);
+        for (Monster monster : monsters) {
+          monster.moveMonster(tiles);
         }
       }
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && hero.posX < tileSize * 9 && !tiles
         .isWall(x + 1, y)) {
       hero.moveRight();
       if (hero.moveCount % 2 == 0) {
-        for (int i = 0; i < monsters.size(); i++) {
-          monsters.get(i).moveMonster(tiles);
+        for (Monster monster : monsters) {
+          monster.moveMonster(tiles);
         }
       }
     }
