@@ -1,3 +1,4 @@
+import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -8,25 +9,35 @@ public class Board extends JComponent implements KeyListener {
   Tile tiles;
   int tileSize;
   Hero hero;
-  Monster monster;
+  ArrayList<Monster> monsters;
 
 
   public Board() {
-    hero = new Hero(0, 0);
+    tiles = new Tile();
+    tiles.fillBoard("assets/level1.csv");
+    monsters = new ArrayList<>();
     tileSize = 72;
-    setPreferredSize(new Dimension(720, 720));
+    hero = new Hero(0, 0);
+
+    while (monsters.size() < 3) {
+      Monster monster = new Monster((int) (Math.random() * 7 + 2) * tileSize,
+          (int) (Math.random() * 7 + 2) * tileSize);
+      if (!tiles.isWall(monster.getPosX() / tileSize, monster.getPosY() / tileSize)) {
+        monsters.add(monster);
+      }
+    }
+    setPreferredSize(new Dimension(tileSize * 10, tileSize * 10));
     setVisible(true);
   }
 
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-    tiles = new Tile();
-    tiles.fillBoard("assets/level1.csv");
     tiles.drawTile(graphics);
     hero.draw(graphics);
-    monster.draw(graphics);
-
+    for (int i = 0; i < monsters.size(); i++) {
+      monsters.get(i).draw(graphics);
+    }
   }
 
   public static void main(String[] args) {
@@ -51,19 +62,35 @@ public class Board extends JComponent implements KeyListener {
 
     if (e.getKeyCode() == KeyEvent.VK_UP && hero.posY >= tileSize && !tiles.isWall(x, y - 1)) {
       hero.moveUp();
-      hero.moveCount++;
+      if (hero.moveCount % 2 == 0) {
+        for (int i = 0; i < monsters.size(); i++) {
+          monsters.get(i).moveMonster();
+        }
+      }
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN && hero.posY < tileSize * 9 && !tiles
         .isWall(x, y + 1)) {
-      hero.moveCount++;
       hero.moveDown();
+      if (hero.moveCount % 2 == 0) {
+        for (int i = 0; i < monsters.size(); i++) {
+          monsters.get(i).moveMonster();
+        }
+      }
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT && hero.posX >= tileSize && !tiles
         .isWall(x - 1, y)) {
       hero.moveLeft();
-      hero.moveCount++;
+      if (hero.moveCount % 2 == 0) {
+        for (int i = 0; i < monsters.size(); i++) {
+          monsters.get(i).moveMonster();
+        }
+      }
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && hero.posX < tileSize * 9 && !tiles
         .isWall(x + 1, y)) {
       hero.moveRight();
-      hero.moveCount++;
+      if (hero.moveCount % 2 == 0) {
+        for (int i = 0; i < monsters.size(); i++) {
+          monsters.get(i).moveMonster();
+        }
+      }
     }
     repaint();
   }

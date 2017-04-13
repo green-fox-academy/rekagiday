@@ -10,11 +10,9 @@ import java.util.List;
 /**
  * Created by User on 2017. 04. 10..
  */
-public class Tile extends Board {
+public class Tile {
 
   int size;
-  int posX;
-  int posY;
   String[][] board = new String[10][10];
   Path path;
 
