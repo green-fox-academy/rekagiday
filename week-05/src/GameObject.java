@@ -8,12 +8,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class GameObject extends Tile {
-
+public class GameObject {
 
   int tileSize, posX, posY;
-  int level;
-  int d6;
 
   BufferedImage image;
 
@@ -24,8 +21,6 @@ public class GameObject extends Tile {
     this.posX = posX;
     this.posY = posY;
     this.tileSize = 72;
-    this.level = 1;
-    d6 = (int) (Math.random() * 6);
     try {
       image = ImageIO.read(new File(filename));
     } catch (IOException e) {
@@ -40,6 +35,7 @@ public class GameObject extends Tile {
   public void setPosY(int posY) {
     this.posY = posY;
   }
+
 
   public int getPosX() {
     return posX;

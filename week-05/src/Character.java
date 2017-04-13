@@ -1,25 +1,25 @@
-import java.awt.Graphics;
-import java.awt.event.KeyEvent;
-import java.nio.file.Files;
-
 /**
  * Created by User on 2017. 04. 10..
  */
 public class Character extends GameObject {
 
   double hp, dp, sp;
+  int level;
+  int d6;
 
   public Character() {
+    this.level = 1;
   }
 
   public Character(String filename, int posX, int posY) {
     super(filename, posX, posY);
+    this.level = 1;
+    d6 = (int) (Math.random() * 6);
   }
 
-//  public boolean isFloor(int x, int y) {
-//    Board board = new Board();
-//    return (posX >= tileSize || posX < tileSize * 9 && !board.tiles.isWall(x, y));
-//  }
+  public int getLevel() {
+    return level;
+  }
 
   public void moveUp() {
     this.posY -= tileSize;

@@ -5,6 +5,9 @@ import java.lang.*;
  */
 public class Monster extends Character {
 
+  public Monster() {
+  }
+
   public Monster(int posX, int posY) {
     super("assets/skeleton.png", posX, posY);
     this.posX = posX;
@@ -14,19 +17,26 @@ public class Monster extends Character {
     this.sp = level * d6;
   }
 
-  public void moveMonster() {
-    int x = posX / tileSize;
-    int y = posY / tileSize;
-    int directionRandomizer = (int) (Math.random() * 4);
+  public void moveMonster(Tile tiles) {
+    int x = this.getPosX() / tileSize;
+    int y = this.getPosY() / tileSize;
+    boolean step = false;
 
-    if (directionRandomizer == 0 && posY >= tileSize /*  && !isWall(x, y - 1)*/) {
-      moveUp();
-    } else if (directionRandomizer == 2 && posY < tileSize * 9 /* && !isWall(x, y + 1)*/) {
-      moveDown();
-    } else if (directionRandomizer == 3 && posX < tileSize * 9 /* && !isWall(x + 1, y)*/) {
-      moveRight();
-    } else if (directionRandomizer == 1 && posX > tileSize /*&& !isWall(x - 1, y)*/) {
-      moveLeft();
+    while (!step) {
+      int directionRandomizer = (int) (Math.random() * 4);
+      if (directionRandomizer == 0 && y >= 1 && !tiles.isWall(x, y - 1)) {
+        moveUp();
+        step = true;
+      } else if (directionRandomizer == 2 && y < 9 && !tiles.isWall(x, y + 1)) {
+        moveDown();
+        step = true;
+      } else if (directionRandomizer == 3 && x < 9 && !tiles.isWall(x + 1, y)) {
+        moveRight();
+        step = true;
+      } else if (directionRandomizer == 1 && x > 1 && !tiles.isWall(x - 1, y)) {
+        moveLeft();
+        step = true;
+      }
     }
   }
 }

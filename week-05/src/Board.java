@@ -1,3 +1,4 @@
+import java.lang.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
@@ -10,14 +11,18 @@ public class Board extends JComponent implements KeyListener {
   int tileSize;
   Hero hero;
   ArrayList<Monster> monsters;
+  String levelPath;
+  Character c;
 
 
   public Board() {
+    c = new Character();
+    levelPath = "assets/level" + c.getLevel() + ".csv";
     tiles = new Tile();
-    tiles.fillBoard("assets/level1.csv");
-    monsters = new ArrayList<>();
+    tiles.fillBoard(levelPath);
     tileSize = 72;
     hero = new Hero(0, 0);
+    monsters = new ArrayList<>();
 
     while (monsters.size() < 3) {
       Monster monster = new Monster((int) (Math.random() * 7 + 2) * tileSize,
@@ -64,7 +69,7 @@ public class Board extends JComponent implements KeyListener {
       hero.moveUp();
       if (hero.moveCount % 2 == 0) {
         for (int i = 0; i < monsters.size(); i++) {
-          monsters.get(i).moveMonster();
+          monsters.get(i).moveMonster(tiles);
         }
       }
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN && hero.posY < tileSize * 9 && !tiles
@@ -72,7 +77,7 @@ public class Board extends JComponent implements KeyListener {
       hero.moveDown();
       if (hero.moveCount % 2 == 0) {
         for (int i = 0; i < monsters.size(); i++) {
-          monsters.get(i).moveMonster();
+          monsters.get(i).moveMonster(tiles);
         }
       }
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT && hero.posX >= tileSize && !tiles
@@ -80,7 +85,7 @@ public class Board extends JComponent implements KeyListener {
       hero.moveLeft();
       if (hero.moveCount % 2 == 0) {
         for (int i = 0; i < monsters.size(); i++) {
-          monsters.get(i).moveMonster();
+          monsters.get(i).moveMonster(tiles);
         }
       }
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && hero.posX < tileSize * 9 && !tiles
@@ -88,7 +93,7 @@ public class Board extends JComponent implements KeyListener {
       hero.moveRight();
       if (hero.moveCount % 2 == 0) {
         for (int i = 0; i < monsters.size(); i++) {
-          monsters.get(i).moveMonster();
+          monsters.get(i).moveMonster(tiles);
         }
       }
     }

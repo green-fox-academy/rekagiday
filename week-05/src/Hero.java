@@ -1,7 +1,3 @@
-import java.awt.Graphics;
-import java.awt.event.KeyEvent;
-import java.lang.*;
-
 /**
  * Created by User on 2017. 04. 10..
  */
