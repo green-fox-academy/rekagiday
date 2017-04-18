@@ -9,14 +9,14 @@ import java.util.List;
  */
 public class Deck {
 
-  List<Card> deck;
+  List<Card> deck = new ArrayList<>();
 
   public Deck(int number) {
-
     for (int i = 0; i < number; i++) {
-      Card card = new Card();
       int colorRng = (int) (Math.random() * 4);
       int valueRng = (int) (Math.random() * 7);
+
+      Card card = new Card();
       if (colorRng == 0) {
         card.setColor("spades");
       } else if (colorRng == 1) {
@@ -47,9 +47,31 @@ public class Deck {
       if (valueRng == 6) {
         card.setValue("King");
       }
-      deck.add(i, card);
+      deck.add(card);
     }
   }
+
+  String getDeck() {
+    int spadesCount = 0;
+    int heartsCount = 0;
+    int diamondsCount = 0;
+    int clubsCount = 0;
+
+    for (Card card : deck) {
+      if (card.color.equals("spades")) {
+        spadesCount++;
+      } else if (card.color.equals("hearts")) {
+        heartsCount++;
+      } else if (card.color.equals("diamonds")) {
+        diamondsCount++;
+      } else if (card.color.equals("clubs")) {
+        clubsCount++;
+      }
+    }
+    return deck.size() + " cards : " + spadesCount + " spades, " + heartsCount + " hearts, "
+        + diamondsCount + " diamonds, " + clubsCount + " clubs. ";
+  }
+
 
   List<Card> shuffle() {
     List<Card> shuffledDeck = new ArrayList<>();
