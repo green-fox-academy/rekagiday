@@ -7,15 +7,12 @@ public class ElectricGuitar extends StringedInstrument {
 
   public ElectricGuitar() {
     this.numberOfStrings = 6;
+    this.sound = "twaaang";
   }
 
   public ElectricGuitar(int numberOfStrings) {
     this.numberOfStrings = numberOfStrings;
     this.name = "Electric guitar";
-  }
-
-  @Override
-  public String play() {
-    return "twaaang";
+    this.sound = "twaaang";
   }
 }

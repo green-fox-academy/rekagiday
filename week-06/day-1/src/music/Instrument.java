@@ -5,6 +5,7 @@ package music;
  */
 abstract public class Instrument {
   String name;
+  String sound;
 
-  abstract public String play();
+  abstract public void play();
 }
