@@ -25,8 +25,13 @@ public class OddAvg {
     for (int i = 0; i < oddNumbers.size(); i++) {
       total += oddNumbers.get(i);
     }
-    average = total / oddNumbers.size();
-    return average;
+
+    if (oddNumbers.size() == 0) {
+      return 0;
+    } else {
+      average = total / oddNumbers.size();
+      return average;
+    }
   }
 }
 
