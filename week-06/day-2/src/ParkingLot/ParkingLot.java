@@ -1,7 +1,11 @@
 package ParkingLot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by User on 2017. 04. 19..
@@ -92,7 +96,34 @@ public class ParkingLot extends Car {
         silverCounter++;
       }
     }
-    System.out.printf("%d red cars, %d yellow cars, %d black cars, %d white cars and %d silver cars",
-        redCounter, yellowCounter, blackCounter, whiteCounter, silverCounter);
+    System.out
+        .printf("%d red cars, %d yellow cars, %d black cars, %d white cars and %d silver cars",
+            redCounter, yellowCounter, blackCounter, whiteCounter, silverCounter);
+  }
+
+  public void mostPopularCar() {
+
+    HashMap<String, Integer> map = new HashMap<>();
+
+    for (Car car : parkingLot) {
+      String thisCar = car.color + " " + car.type;
+      if (!map.containsKey(thisCar)) {
+        map.put(thisCar, 1);
+      } else {
+        int count = map.get(thisCar);
+        count++;
+        map.put(thisCar, count);
+      }
+    }
+    Map.Entry<String, Integer> maxEntry = null;
+
+    for (Map.Entry<String, Integer> entry : map.entrySet()) {
+      if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
+        maxEntry = entry;
+      }
+    }
+    System.out.println(maxEntry);
   }
 }
+
+

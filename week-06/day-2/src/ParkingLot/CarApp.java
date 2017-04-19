@@ -14,5 +14,7 @@ public class CarApp {
     parkingLot.countColor();
     System.out.println();
     parkingLot.countType();
+    System.out.println();
+    parkingLot.mostPopularCar();
   }
 }

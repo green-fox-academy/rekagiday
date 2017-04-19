@@ -1,8 +1,5 @@
 package ParkingLot;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by User on 2017. 04. 19..
  */
@@ -22,7 +19,6 @@ public class Car {
 
   public Car() {
   }
-
 
 }
 
