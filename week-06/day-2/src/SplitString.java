@@ -8,8 +8,8 @@ public class SplitString {
 
   public String[] splitString(String input, int index) {
 
-    String string1;
-    String string2;
+    String string1 = "";
+    String string2 = "";
 
     try {
       string1 = input.substring(0, index - 1);
