@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by User on 2017. 04. 20..
  */
-public class OperationHandler extends TaskList implements ArgumentHandler{
+public class OperationHandler extends TaskList implements Operations {
 
   List<Task> tasks = new ArrayList<>();
   Task task = new Task();
@@ -23,29 +23,54 @@ public class OperationHandler extends TaskList implements ArgumentHandler{
   }
 
   @Override
-  public void load(int id) {
-
+  public void load(Integer id) {
+    try {
+      List<String> lines = Files.readAllLines(path);
+      for (String line : lines) {
+        if (line.contains(id.toString())) {
+          System.out.println(line.toString());
+        }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
   public void load(String title) {
-    for (int i = 0; i < tasks.size(); i++) {
-      System.out.println((i + 1) + ".  " + tasks.get(i).toString());
+    try {
+      List<String> lines = Files.readAllLines(path);
+      for (String line : lines) {
+        if (line.contains(title)) {
+          System.out.println(line.toString());
+        }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
     }
-
   }
 
   @Override
   public void loadAll() {
-    for (int i = 0; i < tasks.size(); i++) {
-      System.out.println((i + 1) + ".  " + tasks.get(i).toString());
+    try {
+      List<String> lines = Files.readAllLines(path);
+      for (String line : lines) {
+        System.out.println(line.toString());
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 
 
   @Override
   public String toString() {
-    return task.getId() + " " + task.getTitle()+ " " + task.getCreatedAt()+ " " + task.getCompletedAt();
+    return task.getId() + " " + task.getTitle() + " " + task.getCreatedAt() + " " + task
+        .getCompletedAt();
+  }
+
+  public void updateTask(int id) {
+
   }
 }
 

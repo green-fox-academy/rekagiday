@@ -9,12 +9,14 @@ public class Task {
   private int id = 0;
   private LocalDate createdAt;
   private LocalDate completedAt;
+  int completionTime;
 
 
   public Task(String[] taskData) {
     this.title = taskData[1];
     this.id = id + 1;
     this.createdAt = LocalDate.now();
+    completionTime = getCompletedAt().getDayOfYear()-getCreatedAt().getDayOfYear();
   }
 
   public Task() {}
