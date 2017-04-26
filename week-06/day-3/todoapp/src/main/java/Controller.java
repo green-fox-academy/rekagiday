@@ -9,7 +9,6 @@ public class Controller {
   void handleArgument(String[] args) {
 
     OperationHandler toDoList = new OperationHandler();
-    toDoList.noArgument(args);
     OptionParser parser = new OptionParser();
 
     parser.accepts("l");
@@ -22,6 +21,7 @@ public class Controller {
 
     if (!options.hasOptions()) {
       System.out.println("Invalid command");
+      toDoList.printUsage();
     }
 
     if (options.has("l")) {

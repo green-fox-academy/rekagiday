@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 /**
  * Created by User on 2017. 04. 21..
@@ -9,19 +10,35 @@ public class Task {
   private String title;
   private int id;
   private static int maxID;
-  private LocalDateTime createdAt;
-  private LocalDateTime completedAt;
+  private ZonedDateTime createdAt;
+  private ZonedDateTime completedAt;
   private int completionTime;
 
 
   public Task(String[] taskData) {
     this.title = taskData[1];
     this.id = id + 1;
-    this.createdAt = LocalDateTime.now();
+    this.createdAt = ZonedDateTime.now();
 //    completionTime = getCompletedAt().getDayOfYear()-getCreatedAt().getDayOfYear();
   }
 
   public Task() {}
+
+  public static int getMaxID() {
+    return maxID;
+  }
+
+  public static void setMaxID(int maxID) {
+    Task.maxID = maxID;
+  }
+
+  public int getCompletionTime() {
+    return completionTime;
+  }
+
+  public void setCompletionTime(int completionTime) {
+    this.completionTime = completionTime;
+  }
 
   public String getTitle() {
     return title;
@@ -39,19 +56,19 @@ public class Task {
     this.id = id;
   }
 
-  public LocalDateTime getCreatedAt() {
+  public ZonedDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(LocalDateTime createdAt) {
+  public void setCreatedAt(ZonedDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
-  public LocalDateTime getCompletedAt() {
+  public ZonedDateTime getCompletedAt() {
     return completedAt;
   }
 
-  public void setCompletedAt(LocalDateTime completedAt) {
+  public void setCompletedAt(ZonedDateTime completedAt) {
     this.completedAt = completedAt;
   }
 
