@@ -10,14 +10,14 @@ import java.util.List;
  * Created by User on 2017. 04. 20..
  */
 public class OperationHandler extends TaskList {
-//
-//  Task task = new Task();
-//
-//
+
+  Task task = new Task();
+
+
   public void saveTask(String task) {
     try {
       Files.write(path, System.lineSeparator().getBytes(), StandardOpenOption.APPEND);
-//      Files.write(path, task.toCsvFormat().getBytes(), StandardOpenOption.APPEND);
+//      datasource.write(path, task.toCsvFormat().getBytes(), StandardOpenOption.APPEND);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -25,7 +25,7 @@ public class OperationHandler extends TaskList {
 //
 //  public void load(Integer id) {
 //    try {
-//      List<String> lines = Files.readAllLines(path);
+//      List<String> lines = datasource.readAllLines(path);
 //      for (String line : lines) {
 //        if (line.contains(id.toString())) {
 //          System.out.println(line.toString());
@@ -38,7 +38,7 @@ public class OperationHandler extends TaskList {
 //
 //  public void load(String title) {
 //    try {
-//      List<String> lines = Files.readAllLines(path);
+//      List<String> lines = datasource.readAllLines(path);
 //      for (String line : lines) {
 //        if (line.contains(title)) {
 //          System.out.println(line.toString());
@@ -88,18 +88,21 @@ public class OperationHandler extends TaskList {
     }
   }
 
-  public String[] taskToArray(Task task) {
-    String[] convertedTask = new String[5];
-    convertedTask[0] = String.valueOf(task.getId());
-    convertedTask[1] = String.valueOf(task.getCreatedAt());
-    convertedTask[2] = String.valueOf(task.getCompletedAt());
-    convertedTask[3] = String.valueOf(task.getCompletionTime());
-    convertedTask[4] = String.valueOf(task.getTitle());
-
-    return convertedTask;
-
+  public void taskListToArrayList(List<Task> taskList) {
+    List<String[]> list = new ArrayList<>();
+    for (Task task: taskList) {
+    }
   }
 
 
+  public String[] taskToArray(Task task) {
+    String[] convertedTask = new String[4];
+    convertedTask[0] = String.valueOf(task.getId());
+    convertedTask[1] = String.valueOf(task.getCreatedAt());
+    convertedTask[2] = String.valueOf(task.getCompletedAt());
+    convertedTask[3] = String.valueOf(task.getTitle());
+
+    return convertedTask;
+  }
 }
 
