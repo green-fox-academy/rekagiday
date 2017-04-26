@@ -30,7 +30,7 @@ public class FileHandler {
     return false;
   }
 
-  public List<String> readDataFromFile(String fileToReadPlace) {
+  public List<String> readDataFromFile() {
     Path path = Paths.get(this.path);
     try {
       return Files.readAllLines(path);
