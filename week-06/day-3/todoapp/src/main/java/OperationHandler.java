@@ -7,22 +7,20 @@ import java.util.List;
 /**
  * Created by User on 2017. 04. 20..
  */
-public class OperationHandler extends TaskList implements Operations {
+public class OperationHandler extends TaskList {
 
-  List<Task> tasks = new ArrayList<>();
   Task task = new Task();
 
 
-  public void saveTask(Task task) {
+  public void saveTask(String task) {
     try {
       Files.write(path, System.lineSeparator().getBytes(), StandardOpenOption.APPEND);
-      Files.write(path, task.toCsvFormat().getBytes(), StandardOpenOption.APPEND);
+//      Files.write(path, task.toCsvFormat().getBytes(), StandardOpenOption.APPEND);
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
 
-  @Override
   public void load(Integer id) {
     try {
       List<String> lines = Files.readAllLines(path);
@@ -36,7 +34,6 @@ public class OperationHandler extends TaskList implements Operations {
     }
   }
 
-  @Override
   public void load(String title) {
     try {
       List<String> lines = Files.readAllLines(path);
@@ -50,7 +47,7 @@ public class OperationHandler extends TaskList implements Operations {
     }
   }
 
-  @Override
+
   public void loadAll() {
     try {
       List<String> lines = Files.readAllLines(path);
@@ -69,8 +66,17 @@ public class OperationHandler extends TaskList implements Operations {
         .getCompletedAt();
   }
 
-  public void updateTask(int id) {
 
+  public void updateTask(String id) {
+  }
+
+  public void noArgument(String[] args) {
+  }
+
+  public void removeTask(String string) {
+  }
+
+  public void checkTask(String string) {
   }
 }
 

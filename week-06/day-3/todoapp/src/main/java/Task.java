@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by User on 2017. 04. 21..
@@ -6,17 +7,18 @@ import java.time.LocalDate;
 public class Task {
 
   private String title;
-  private int id = 0;
-  private LocalDate createdAt;
-  private LocalDate completedAt;
-  int completionTime;
+  private int id;
+  private static int maxID;
+  private LocalDateTime createdAt;
+  private LocalDateTime completedAt;
+  private int completionTime;
 
 
   public Task(String[] taskData) {
     this.title = taskData[1];
     this.id = id + 1;
-    this.createdAt = LocalDate.now();
-    completionTime = getCompletedAt().getDayOfYear()-getCreatedAt().getDayOfYear();
+    this.createdAt = LocalDateTime.now();
+//    completionTime = getCompletedAt().getDayOfYear()-getCreatedAt().getDayOfYear();
   }
 
   public Task() {}
@@ -37,19 +39,19 @@ public class Task {
     this.id = id;
   }
 
-  public LocalDate getCreatedAt() {
+  public LocalDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(LocalDate createdAt) {
+  public void setCreatedAt(LocalDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
-  public LocalDate getCompletedAt() {
+  public LocalDateTime getCompletedAt() {
     return completedAt;
   }
 
-  public void setCompletedAt(LocalDate completedAt) {
+  public void setCompletedAt(LocalDateTime completedAt) {
     this.completedAt = completedAt;
   }
 

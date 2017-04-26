@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by User on 2017. 04. 21..
  */
-public class TaskList extends Task {
+public class TaskList extends ArrayList {
 
   List<Task> tasks = new ArrayList<>();
   Path path;
