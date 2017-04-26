@@ -40,4 +40,14 @@ public class Task implements Entity {
     String completedAt = this.completedAt == null ? "" :  this.completedAt.toInstant().toString();
     return String.format("%s;%s;%s;%s", id, createdAt.toInstant().toString(), completedAt, title);
   }
+
+  @Override
+  public String toString() {
+    return "Task{" +
+        "title='" + title + '\'' +
+        ", id=" + id +
+        ", createdAt=" + createdAt +
+        ", completedAt=" + completedAt +
+        '}';
+  }
 }

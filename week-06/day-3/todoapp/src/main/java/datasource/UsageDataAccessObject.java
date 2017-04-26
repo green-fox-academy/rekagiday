@@ -12,8 +12,8 @@ public class UsageDataAccessObject implements DataAccessObject<Usage> {
 
   private FileHandler fileHandler;
 
-  public UsageDataAccessObject(FileHandler fileHandler) {
-    this.fileHandler = fileHandler;
+  public UsageDataAccessObject(String path) {
+    this.fileHandler = new FileHandler(path);
   }
 
   @Override
@@ -25,10 +25,11 @@ public class UsageDataAccessObject implements DataAccessObject<Usage> {
   public List<Usage> loadAll() {
     List<Usage> loadedUsage = new ArrayList<>();
     List<String> loadedUsagesAsStrings = fileHandler.readDataFromFile();
-    for (String lines : loadedUsagesAsStrings) {
-      String[] usageData = lines.split(";");
+    for (String line : loadedUsagesAsStrings) {
+      String[] usageData = line.split(";");
       loadedUsage.add(UsageFactory.createUsage(usageData));
     }
     return loadedUsage;
   }
 }
+

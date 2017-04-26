@@ -5,7 +5,7 @@ public class App {
 
   public static void main(String[] args) {
 
-    Controller controller = new Controller();
+    ArgumentHandler controller = new ArgumentHandler();
     controller.handleArgument(args);
   }
 }

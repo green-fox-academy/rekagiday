@@ -4,7 +4,7 @@ import joptsimple.OptionSet;
 /**
  * Created by User on 2017. 04. 26..
  */
-public class Controller {
+public class ArgumentHandler {
 
   void handleArgument(String[] args) {
 
@@ -19,26 +19,26 @@ public class Controller {
 
     OptionSet options = parser.parse(args);
 
-    if (!options.hasOptions()) {
-      System.out.println("Invalid command");
-      toDoList.printUsage();
-    }
-
-    if (options.has("l")) {
-      toDoList.loadAll();
-    }
-
-    if (options.hasArgument("a")) {
-      toDoList.saveTask(options.valueOf("a").toString());
-    }
-
-    if (options.hasArgument("r")) {
-      toDoList.removeTask(options.valueOf("r").toString());
-    }
-
-    if (options.hasArgument("c")) {
-      toDoList.checkTask(options.valueOf("c").toString());
-    }
+//    if (args == null || args.length == 0) {
+//      System.out.println("Invalid command");
+//      toDoList.printUsage();
+//    }
+//
+//    if (options.has("l")) {
+//      toDoList.loadAll();
+//    }
+//
+//    if (options.hasArgument("a")) {
+//      toDoList.saveTask(options.valueOf("a").toString());
+//    }
+//
+//    if (options.hasArgument("r")) {
+//      toDoList.removeTask(options.valueOf("r").toString());
+//    }
+//
+//    if (options.hasArgument("c")) {
+//      toDoList.checkTask(options.valueOf("c").toString());
+//    }
 
 //    if (options.hasArgument("u")) {
 //      toDoList.updateTask(options.valueOf("u").toString());
