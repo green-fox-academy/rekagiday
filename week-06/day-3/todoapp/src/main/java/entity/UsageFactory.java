@@ -8,5 +8,7 @@ public class UsageFactory {
   public static Usage createUsage(String[] usages) {
     return new Usage(usages[0], usages[1], usages[2]);
   }
+
+
 }
 

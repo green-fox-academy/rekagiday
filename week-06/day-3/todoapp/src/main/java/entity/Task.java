@@ -37,17 +37,17 @@ public class Task implements Entity {
 
   @Override
   public String toDataFormat() {
-    String completedAt = this.completedAt == null ? "" :  this.completedAt.toInstant().toString();
+    String completedAt = this.completedAt == null ? "" : this.completedAt.toInstant().toString();
     return String.format("%s;%s;%s;%s", id, createdAt.toInstant().toString(), completedAt, title);
   }
 
   @Override
   public String toString() {
-    return "Task{" +
-        "title='" + title + '\'' +
-        ", id=" + id +
-        ", createdAt=" + createdAt +
-        ", completedAt=" + completedAt +
+    return "#" + id +
+        "title = " + title + '\'' +
+        ", createdAt = " + createdAt +
+        ", completedAt = " + completedAt +
         '}';
   }
 }
+

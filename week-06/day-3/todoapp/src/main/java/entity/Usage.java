@@ -32,4 +32,12 @@ public class Usage implements Entity {
     return String.format("%s;%s;%s", command, argument, description);
   }
 
+  @Override
+  public String toString() {
+    return "Usage{" +
+        "command='" + command + '\'' +
+        ", argument='" + argument + '\'' +
+        ", description='" + description + '\'' +
+        '}';
+  }
 }

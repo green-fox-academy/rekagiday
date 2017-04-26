@@ -1,3 +1,4 @@
+import controller.Controller;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 
@@ -8,8 +9,8 @@ public class ArgumentHandler {
 
   void handleArgument(String[] args) {
 
-    OperationHandler toDoList = new OperationHandler();
     OptionParser parser = new OptionParser();
+    Controller controller = new Controller();
 
     parser.accepts("l");
     parser.accepts("a").withOptionalArg();
@@ -19,15 +20,16 @@ public class ArgumentHandler {
 
     OptionSet options = parser.parse(args);
 
-//    if (args == null || args.length == 0) {
-//      System.out.println("Invalid command");
-//      toDoList.printUsage();
-//    }
-//
-//    if (options.has("l")) {
-//      toDoList.loadAll();
-//    }
-//
+    if (args == null || args.length == 0) {
+      System.out.println("Invalid command");
+      controller.listUsage();
+      return;
+    }
+
+    if (options.has("l")) {
+      controller.listTasks();
+    }
+
 //    if (options.hasArgument("a")) {
 //      toDoList.saveTask(options.valueOf("a").toString());
 //    }
