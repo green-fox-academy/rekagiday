@@ -1,7 +1,7 @@
 package datasource;
 
 import entity.Task;
-import entity.ToDoFactory;
+import entity.TaskFactory;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,12 +29,10 @@ public class TaskDataAccessObject implements DataAccessObject<Task> {
   public List<Task> loadAll() {
     List<Task> loadedTasks = new ArrayList<>();
     List<String> loadedTasksAsStrings = fileHandler.readDataFromFile();
-
     for (String lines : loadedTasksAsStrings) {
       String[] taskData = lines.split(";");
-      loadedTasks.add(ToDoFactory.createTask(taskData));
+      loadedTasks.add(TaskFactory.createTask(taskData));
     }
-
     return loadedTasks;
   }
 }

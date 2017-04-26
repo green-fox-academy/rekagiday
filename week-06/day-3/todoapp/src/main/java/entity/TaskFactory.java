@@ -6,7 +6,7 @@ import java.time.ZonedDateTime;
 /**
  * Created by User on 2017. 04. 26..
  */
-public class ToDoFactory {
+public class TaskFactory {
 
   public static Task createTask(String[] args) {
     int id = Integer.parseInt(args[0]);
