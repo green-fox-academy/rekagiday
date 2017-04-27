@@ -43,11 +43,8 @@ public class Task implements Entity {
 
   @Override
   public String toString() {
-    return "#" + id +
-        "  title = " + title + '\'' +
-        ", createdAt = " + createdAt +
-        ", completedAt = " + completedAt +
-        '}';
+    return "#" + id + "  title = " + title + ", createdAt = " + createdAt + ", completedAt = "
+        + completedAt;
   }
 }
 

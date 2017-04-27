@@ -1,7 +1,6 @@
 package controller;
 
 import datasource.DataAccessObject;
-import datasource.FileHandler;
 import datasource.TaskDataAccessObject;
 import datasource.UsageDataAccessObject;
 import entity.Task;
@@ -80,11 +79,28 @@ public class Controller {
     }
     this.taskDao.saveAll(listAfterCheck);
   }
+
+  public void updateTask(String idAndNewTitle) {
+    List<Task> tasks = taskDao.loadAll();
+    List<Task> listAfterUpdate = new ArrayList<>();
+
+    String id = idAndNewTitle.substring(0, idAndNewTitle.indexOf(" "));
+    String newTitle = idAndNewTitle.substring(idAndNewTitle.indexOf(" "));
+
+    for (Task task : tasks) {
+      if (task.getId() != Integer.parseInt(id)) {
+        listAfterUpdate.add(task);
+      }
+      if (task.getId() == Integer.parseInt(id)) {
+        String[] taskString = new String[4];
+        taskString[0] = id;
+        taskString[1] = task.getCreatedAt().toString();
+        taskString[2] = (task.getCompletedAt() == null) ? null : task.getCompletedAt().toString();
+        taskString[3] = newTitle;
+        listAfterUpdate.add(TaskFactory.createTask(taskString));
+      }
+    }
+    this.taskDao.saveAll(listAfterUpdate);
+  }
 }
-
-
-
-
-
-
 

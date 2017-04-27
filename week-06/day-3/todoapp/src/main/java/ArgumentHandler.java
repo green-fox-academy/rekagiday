@@ -42,8 +42,8 @@ public class ArgumentHandler {
       controller.checkTask(options.valueOf("c").toString());
     }
 
-//    if (options.hasArgument("u")) {
-//      toDoList.updateTask(options.valueOf("u").toString());
-//    }
+    if (options.hasArgument("u")) {
+      controller.updateTask(options.valueOf("u").toString());
+    }
   }
 }
