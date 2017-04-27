@@ -34,14 +34,14 @@ public class ArgumentHandler {
       controller.addTask(options.valueOf("a").toString());
     }
 
-//    if (options.hasArgument("r")) {
-//      toDoList.removeTask(options.valueOf("r").toString());
-//    }
-//
-//    if (options.hasArgument("c")) {
-//      toDoList.checkTask(options.valueOf("c").toString());
-//    }
-//
+    if (options.hasArgument("r")) {
+      controller.removeTask(options.valueOf("r").toString());
+    }
+
+    if (options.hasArgument("c")) {
+      controller.checkTask(options.valueOf("c").toString());
+    }
+
 //    if (options.hasArgument("u")) {
 //      toDoList.updateTask(options.valueOf("u").toString());
 //    }

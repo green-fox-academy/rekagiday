@@ -60,10 +60,29 @@ public class Controller {
     this.taskDao.saveAll(listAfterRemove);
   }
 
-  
+  public void checkTask(String id) {
+    List<Task> tasks = taskDao.loadAll();
 
+    List<Task> listAfterCheck = new ArrayList<>();
 
+    for (Task task : tasks) {
+      if (task.getId() != Integer.parseInt(id)) {
+        listAfterCheck.add(task);
+      }
+      if (task.getId() == Integer.parseInt(id)) {
+        String[] taskString = new String[4];
+        taskString[0] = id;
+        taskString[1] = task.getCreatedAt().toString();
+        taskString[2] = ZonedDateTime.now().toString();
+        taskString[3] = task.getTitle();
+        listAfterCheck.add(TaskFactory.createTask(taskString));
+      }
+    }
+    this.taskDao.saveAll(listAfterCheck);
+  }
 }
+
+
 
 
 
