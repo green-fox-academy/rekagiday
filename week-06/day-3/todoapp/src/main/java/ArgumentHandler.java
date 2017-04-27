@@ -30,10 +30,10 @@ public class ArgumentHandler {
       controller.listTasks();
     }
 
-//    if (options.hasArgument("a")) {
-//      toDoList.saveTask(options.valueOf("a").toString());
-//    }
-//
+    if (options.hasArgument("a")) {
+      controller.addTask(options.valueOf("a").toString());
+    }
+
 //    if (options.hasArgument("r")) {
 //      toDoList.removeTask(options.valueOf("r").toString());
 //    }
@@ -41,7 +41,7 @@ public class ArgumentHandler {
 //    if (options.hasArgument("c")) {
 //      toDoList.checkTask(options.valueOf("c").toString());
 //    }
-
+//
 //    if (options.hasArgument("u")) {
 //      toDoList.updateTask(options.valueOf("u").toString());
 //    }

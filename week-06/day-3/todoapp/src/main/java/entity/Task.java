@@ -44,7 +44,7 @@ public class Task implements Entity {
   @Override
   public String toString() {
     return "#" + id +
-        "title = " + title + '\'' +
+        "  title = " + title + '\'' +
         ", createdAt = " + createdAt +
         ", completedAt = " + completedAt +
         '}';
