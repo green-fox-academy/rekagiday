@@ -1,0 +1,5 @@
+-l;;lists all tasks
+-a;main task text; add new task
+-r;task id;removes a task
+-c;task id;completes a task
+-u;task id;updates task
