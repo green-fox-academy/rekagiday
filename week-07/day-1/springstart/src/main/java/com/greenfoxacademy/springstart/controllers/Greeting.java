@@ -1,4 +1,4 @@
-package controllers;
+package com.greenfoxacademy.springstart.controllers;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
