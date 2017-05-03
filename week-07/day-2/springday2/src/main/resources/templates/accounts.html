@@ -16,13 +16,18 @@
     <th>King</th>
     <th>Good or bad</th>
   </tr>
-  <tr th:each="account : ${accounts}" th:style="${account.isKing()}? 'color: orange'">
+  <tr th:each="account : ${accounts}" th:style="${account.isKing()} ? 'color: orange'">
     <td th:text="${(accountStat.index + 1)}"></td>
     <td th:text="${account.getName()} ">name</td>
     <td th:text="${#numbers.formatDecimal(account.getBalance(),0,2, 'POINT')} +' Zebra'"></td>
     <td th:text="${account.getAnimalType()} ">type</td>
     <td th:text="${account.isKing()} ? 'king' : 'not king' ">king</td>
-    <td th:text="${account.isGood()} ? 'good guy' : 'bad guy' ">good</td>
+    <td th:switch="${account.isGood()}">
+      <span th:case="true" th:text="'good guy'"></span>
+      <span th:case="false" th:text="'bad guy'"></span>
+    </td>
+
+
   </tr>
 </table>
 </body>
