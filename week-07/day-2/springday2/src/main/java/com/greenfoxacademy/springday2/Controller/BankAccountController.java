@@ -10,9 +10,22 @@ public class BankAccountController {
 
   @RequestMapping(value = "/exercise1")
   public String showAccountData(Model model) {
-    BankAccount bankAccount = new BankAccount("Simba", 2000, "lion");
+    BankAccount bankAccount = new BankAccount("Simba", 2000, "lion", false, true);
     model.addAttribute(bankAccount);
-
     return "account";
+  }
+
+  @RequestMapping(value = "/exercise5")
+  public String showAllAccount(Model model) {
+    BankAccount[] accounts = new BankAccount[5];
+
+    accounts[0] = new BankAccount("Simba", 2000, "lion", false, true);
+    accounts[1] = new BankAccount("Timon", 1000, "meerkat", false, true);
+    accounts[2] = new BankAccount("Scar", 3500, "lion", false, false);
+    accounts[3] = new BankAccount("Mufasa", 4000, "lion", true, true);
+    accounts[4] = new BankAccount("Pumba", 1, "warthog", false, true);
+
+    model.addAttribute("accounts", accounts);
+    return "accounts";
   }
 }
