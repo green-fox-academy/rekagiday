@@ -8,7 +8,7 @@ import lombok.Getter;
 public class BankAccount {
 
   String name;
-  int balance;
+  double balance;
   String animalType;
 }
 

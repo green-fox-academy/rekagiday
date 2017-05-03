@@ -7,7 +7,7 @@
 </head>
 <body>
 <!--/*@thymesVar id="bankAccount" type="com.greenfoxacademy.springday2.Model.BankAccount"*/-->
-<p th:text="'Name: ' + ${bankAccount.getName()} + ', balance: ' + ${bankAccount.getBalance()} +
+<p  th:text="'Name: ' + ${bankAccount.getName()} + ', balance: ' + ${#numbers.formatDecimal(bankAccount.getBalance(),3,2, 'POINT')} +
 ', animal type: ' + ${bankAccount.getAnimalType()} ">
   .</p>
 
