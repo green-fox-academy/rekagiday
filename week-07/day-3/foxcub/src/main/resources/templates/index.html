@@ -5,16 +5,17 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<ul>
-  <li><a href="/">Information</a>
-</ul>
-<img src="greenfox.png"/>
-<p>This is Mr. Fox. Currently living on pizza and lemonade. He knows 2 tricks.</p>
-<h1>Known Tricks</h1>
-<ul>
-  <li>write HTML</li>
-  <li>code Java</li>
 
+<ul>
+  <li><a th:href="@{'/'}">Information</a></li>
+</ul>
+
+<img src="greenfox.png"/>
+<p th:text=" 'This is Mr. Fox. Currently living on pizza and lemonade. He knows 2 tricks.'" >.</p>
+<h1 th:text="'Known Tricks'">.</h1>
+<ul>
+  <li th:text="'write HTML'">.</li>
+  <li th:text="'code Java'">.</li>
 </ul>
 
 
