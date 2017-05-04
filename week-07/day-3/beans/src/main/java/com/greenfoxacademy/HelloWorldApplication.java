@@ -1,7 +1,7 @@
 package com.greenfoxacademy;
 
-import com.greenfoxacademy.helloworld.HelloWorld;
-import com.greenfoxacademy.helloworld.HelloWorldConfig;
+import com.greenfoxacademy.model.HelloWorld;
+import com.greenfoxacademy.config.HelloWorldConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -10,7 +10,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class HelloWorldApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(HelloWorldApplication.class, args);
 
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(

@@ -1,4 +1,4 @@
-package com.greenfoxacademy.helloworld;
+package com.greenfoxacademy.model;
 
 public class HelloWorld {
   private String message;

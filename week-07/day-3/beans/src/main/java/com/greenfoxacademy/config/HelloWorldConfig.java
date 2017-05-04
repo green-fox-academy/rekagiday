@@ -1,5 +1,6 @@
-package com.greenfoxacademy.helloworld;
+package com.greenfoxacademy.config;
 
+import com.greenfoxacademy.model.HelloWorld;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
