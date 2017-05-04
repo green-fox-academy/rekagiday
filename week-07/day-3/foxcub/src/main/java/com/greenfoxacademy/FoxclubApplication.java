@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FoxcubApplication {
+public class FoxclubApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FoxcubApplication.class, args);
+		SpringApplication.run(FoxclubApplication.class, args);
 	}
 }
