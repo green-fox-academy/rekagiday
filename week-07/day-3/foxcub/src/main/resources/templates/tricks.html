@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Welcome to the Trick Center!</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<ul>
+  <li><a th:href="@{'../'}">Information</a></li>
+  <li><a th:href="@{'../nutrition'}">Nutrition Shop</a></li>
+</ul>
+
+<h1>Teach some new tricks to your fox!</h1>
+
+<img src="foxtrick.png" width="200px"/>
+<p th:text=" |This is ${fox.name}. Currently living on ${fox.food} and ${fox.drink}. She knows
+${fox.tricks.size()} tricks. |" >.</p>
+
+<table>
+  <form action="/addtrick">
+    <tr>
+      <th>Trick</th>
+    </tr>
+    <tr>
+      <td><input type="list" name="trick"/></td>
+      <td><input type="submit" value="Learn"/></td>
+    </tr>
+  </form>
+</table>
+
+
+<h1 th:text="'Known Tricks'">.</h1>
+
+<ol>
+  <p th:if="${fox.tricks.size()} == 0" th:text="|You know zero tricks.|"></p>
+  <li th:each="trick : ${fox.tricks}" th:text="${trick}"></li>
+</ol>
+
+
+</body>
+</html>

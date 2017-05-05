@@ -1,9 +1,12 @@
 package com.greenfoxacademy.controller;
 
 import com.greenfoxacademy.model.Fox;
+import java.util.Arrays;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -14,13 +17,48 @@ public class MainController {
 
   @Autowired
   Fox fox;
+  List<String> tricks;
 
-  ModelAndView model = new ModelAndView();
+  public MainController() {
+    this.tricks = Arrays.asList("Write HTML", "Code in Java", "Brew coffee");
+  }
 
   @RequestMapping(value = "/")
-  public String home() {
-    model.setViewName("home");
-    model.addObject(fox);
-    return "index";
+  public ModelAndView home() {
+    ModelAndView model = new ModelAndView();
+    model.setViewName("index");
+    model.addObject("fox", fox);
+    return model;
   }
+
+  @RequestMapping(value = "/nutrition")
+  public ModelAndView nutrition() {
+    ModelAndView model = new ModelAndView();
+    model.setViewName("nutrition");
+    model.addObject("fox", fox);
+    return model;
+  }
+
+  @RequestMapping(value = "/tricks")
+  public ModelAndView tricks() {
+    ModelAndView model = new ModelAndView();
+    model.setViewName("tricks");
+    model.addObject("fox", fox);
+    return model;
+  }
+
+  @RequestMapping(value = "/addnutrition")
+  public String addNutrition(@RequestParam String food, String drink) {
+    fox.setFood(food);
+    fox.setDrink(drink);
+    return "redirect:/";
+  }
+
+  @RequestMapping(value = "/addtrick")
+  public String addTrick(@RequestParam String trick){
+    fox.addTrick(trick);
+    return "redirect:/tricks";
+  }
+
+
 }
