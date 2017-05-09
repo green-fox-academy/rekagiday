@@ -6,7 +6,11 @@
   <meta charset="utf-8"/>
 </head>
 <body>
-<table>
+
+
+
+
+<table class="table table-bordered table-striped">
 
   <tr>
     <th>ID</th>
@@ -17,7 +21,7 @@
     <th>Good or bad</th>
   </tr>
   <tr th:each="account : ${accounts}" th:style="${account.isKing()} ? 'color: orange'">
-    <td th:text="${(accountStat.index + 1)}"></td>
+    <td th:text="${(accountStat.index)}"></td>
     <td th:text="${account.getName()} ">name</td>
     <td th:text="${#numbers.formatDecimal(account.getBalance(),0,2, 'POINT')} +' Zebra'"></td>
     <td th:text="${account.getAnimalType()} ">type</td>
@@ -26,8 +30,10 @@
       <span th:case="true" th:text="'good guy'"></span>
       <span th:case="false" th:text="'bad guy'"></span>
     </td>
-
-
+    <td>
+      <a th:href="${'/add?id=' + accountStat.index}" th:object="${account}" method="post"></a>
+      <input type="submit" th:value="'Add to balance'" />
+    </td>
   </tr>
 </table>
 </body>

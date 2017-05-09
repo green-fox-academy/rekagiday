@@ -1,10 +1,10 @@
 package com.greenfoxacademy.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by User on 2017. 05. 04..
@@ -15,6 +15,7 @@ public class Fox {
 
   String name;
   List<String> tricks;
+  List<String> learnableTricks = new ArrayList<>(Arrays.asList("Write HTML", "Learn Java Basics", "Understand Spring stuff", "Make coffee", "Make more coffee", "Relax", "Fly", "Sing"));
   String food;
   String drink;
 
@@ -28,5 +29,9 @@ public class Fox {
   public void addTrick(String trick) {
     tricks.add(trick);
   }
+
 }
+
+
+
 

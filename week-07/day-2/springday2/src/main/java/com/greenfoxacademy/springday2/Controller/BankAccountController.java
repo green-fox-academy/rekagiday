@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BankAccountController {
 
+  BankAccount[] accounts = new BankAccount[5];
+
   @RequestMapping(value = "/exercise1")
   public String showAccountData(Model model) {
     BankAccount bankAccount = new BankAccount("Simba", 2000, "lion", false, true);
@@ -17,7 +19,6 @@ public class BankAccountController {
 
   @RequestMapping(value = "/exercise5")
   public String showAllAccount(Model model) {
-    BankAccount[] accounts = new BankAccount[5];
 
     accounts[0] = new BankAccount("Simba", 2000, "lion", false, true);
     accounts[1] = new BankAccount("Timon", 1000, "meerkat", false, true);
@@ -29,3 +30,4 @@ public class BankAccountController {
     return "accounts";
   }
 }
+

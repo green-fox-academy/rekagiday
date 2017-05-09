@@ -1,7 +1,6 @@
 package com.greenfoxacademy.controller;
 
 import com.greenfoxacademy.model.Fox;
-import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,11 +16,8 @@ public class MainController {
 
   @Autowired
   Fox fox;
-  List<String> tricks;
+  List<String> learnableTricks;
 
-  public MainController() {
-    this.tricks = Arrays.asList("Write HTML", "Code in Java", "Brew coffee");
-  }
 
   @RequestMapping(value = "/")
   public ModelAndView home() {
@@ -55,10 +51,16 @@ public class MainController {
   }
 
   @RequestMapping(value = "/addtrick")
-  public String addTrick(@RequestParam String trick){
-    fox.addTrick(trick);
+  public String addTrick(@RequestParam String addTrick) {
+    for (int i = 0; i < fox.getLearnableTricks().size(); i++) {
+      int index;
+      if (addTrick.equals(fox.getLearnableTricks().get(i))) {
+        index = i;
+        fox.getLearnableTricks().remove(index);
+      }
+    }
+    fox.addTrick(addTrick);
     return "redirect:/tricks";
   }
-
-
 }
+

@@ -13,9 +13,11 @@
   <span><a th:href="@{'../tricks'}">Trick Center</a></span>
 </h3>
 
-<h1>Your fox got bored of her diet, change it!</h1>
+<h1 th:text=" | ${fox.name} got bored of her diet, change it! |">.</h1>
 
-<img src="hungryfox.png" width="300px"/>
+<h3>
+  <img src="hungryfox.png" width="300px"/>
+</h3>
 <table>
   <form action="/addnutrition">
     <tr>

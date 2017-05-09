@@ -3,7 +3,7 @@
 <head>
   <title>Programming Fox Club</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <link rel="stylesheet" type="text/css" media="all" href="/style.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="/style.css"/>
 </head>
 <body>
 
@@ -14,11 +14,11 @@
 </h3>
 
 <p/>
-<img src="fox.png" width="300px"/>
-<!--/*@thymesVar id="fox" type="java"*/-->
-<!--/*@thymesVar id="name" type="java"*/-->
+<h1>
+  <img src="fox.png" width="300px"/>
+</h1>
 <p th:text=" |This is ${fox.name}. Currently living on ${fox.food} and ${fox.drink}. She knows
-${fox.tricks.size()} tricks. |" >.</p>
+${fox.tricks.size()} tricks. |">.</p>
 
 <h1 th:text="'Known Tricks'">.</h1>
 <ol>
