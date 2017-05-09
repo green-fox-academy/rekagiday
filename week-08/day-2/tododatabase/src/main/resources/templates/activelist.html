@@ -10,12 +10,12 @@
 
 <table>
   <tr>
-  <th>ID</th>
-  <th>Description</th>
-  <th>Done</th>
-  <th>Urgent</th>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Done</th>
+    <th>Urgent</th>
   </tr>
-  <tr th:each="todo : ${todos}">
+  <tr th:each="todo : ${todos}" th:if="${todo.isDone} == false">
     <!--/*@thymesVar id="todo" type="com.greenfoxacademy.model.Todo"*/-->
     <td th:text="${todo.getId()}"></td>
     <td th:text="${todo.title}"></td>
