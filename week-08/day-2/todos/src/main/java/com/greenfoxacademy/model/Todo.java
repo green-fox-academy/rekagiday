@@ -18,4 +18,11 @@ public class Todo {
   private String title;
   private boolean isUrgent;
   private boolean isDone;
+
+  public Todo() {
+  }
+
+  public Todo(String title) {
+    this.title = title;
+  }
 }
