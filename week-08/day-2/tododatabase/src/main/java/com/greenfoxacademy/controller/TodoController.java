@@ -16,7 +16,6 @@ public class TodoController {
   @Autowired
   private Repository repository;
 
-
   @RequestMapping(value = {"/list", "/"})
   public String list(@RequestParam(value = "isActive", required = false) boolean isActive,
       Model model) {
@@ -32,7 +31,7 @@ public class TodoController {
   public String add() {
     return "/add";
   }
-  
+
   @RequestMapping(value = "/addtodo")
   public String addtodo(String title) {
     repository.save(new Todo(title));
