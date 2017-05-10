@@ -5,6 +5,7 @@ import com.greenfoxacademy.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,7 +33,7 @@ public class TodoController {
     return "/add";
   }
 
-  @RequestMapping(value = "/addtodo")
+  @PostMapping(value = "/addtodo")
   public String addtodo(String title) {
     repository.save(new Todo(title));
     return "redirect:/todo/list";
