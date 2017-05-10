@@ -1,10 +1,11 @@
 package com.greenfoxacademy.controller;
 
 import com.greenfoxacademy.model.Displayer;
-import com.greenfoxacademy.model.Greeting;
+import com.greenfoxacademy.model.Greeter;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,9 +22,10 @@ public class MainRestController {
     return new Displayer(input);
   }
 
-  @GetMapping("/greeter")
-  public Greeting greeter(@RequestParam (value = "name", required = true) String name, @RequestParam ( value = "title", required = true) String title) {
-    return new Greeting(name, title);
+  @RequestMapping("/greeter")
+  public Greeter greeter(@RequestParam (value = "name", required = true) String name,
+                          @RequestParam (value = "title", required = true) String title) {
+    return new Greeter(name, title);
   }
 }
 
