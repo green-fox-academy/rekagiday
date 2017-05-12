@@ -1,5 +1,6 @@
 package com.greenfoxacademy.reka.reddit.model;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,9 +19,8 @@ public class Post {
   long id;
   String title;
   String href;
-  Timestamp timestamp;
+  Timestamp timestamp =  new Timestamp(System.currentTimeMillis());
   int score;
-
 
   public Post(String title, String href, Timestamp timestamp, int score) {
     this.title = title;
@@ -31,4 +31,18 @@ public class Post {
 
   public Post() {
   }
+
+  public Post(String title, String href) {
+    this.title = title;
+    this.href = href;
+  }
+
+  public void downVote() {
+    score--;
+  }
+
+  public void upVote() {
+    score++;
+  }
+
 }
