@@ -1,13 +1,24 @@
 package com.greenfoxacademy.model;
 
-/**
- * Created by User on 2017. 05. 15..
- */
-public class Groot {
+import com.greenfoxacademy.service.GrootService;
+import org.springframework.stereotype.Component;
 
-  String translated;
+@Component
+public class Groot implements GrootService {
 
-  public Groot(String translated) {
-    this.translated = "I am Groot!";
+    String received;
+    String translated = "I am Groot!";
+
+
+  public String getReceived() {
+      return received;
+    }
+
+    public void setReceived(String received) {
+      this.received = received;
+    }
+
+    public String getTranslated() {
+      return translated;
+    }
   }
-}
