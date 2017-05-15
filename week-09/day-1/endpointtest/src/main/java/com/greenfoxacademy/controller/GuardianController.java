@@ -2,6 +2,7 @@ package com.greenfoxacademy.controller;
 
 import com.greenfoxacademy.model.ErrorHandler;
 import com.greenfoxacademy.model.Groot;
+import com.greenfoxacademy.model.Yondu;
 import com.greenfoxacademy.service.GrootService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,4 +25,18 @@ public class GuardianController {
     groot.setReceived(message);
     return groot;
   }
+
+  @Autowired
+  Yondu yondu;
+
+  @GetMapping(value = "/yondu")
+  public Yondu yondu(@RequestParam(value = "distance") String distance,
+                     @RequestParam (value = "time") String time) {
+    yondu.setDistance(Double.parseDouble(distance));
+    yondu.setTime(Double.parseDouble(time));
+    yondu.setSpeed();
+    return yondu;
+  }
+
+
 }
