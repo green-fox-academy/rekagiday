@@ -15,6 +15,7 @@ namespace ConsoleApp1
 
 			IEnumerable<int> firstList = n.Where(y => y % 2 == 0);
 			double averageOfOddNumbers = n.Where(y => y % 2 == 1).Average();
+			IEnumerable<int> thirdList = n.Where(y => y > 0);
 
 			foreach (int e in firstList)
 			{
@@ -22,6 +23,11 @@ namespace ConsoleApp1
 			}
 			
 			Console.WriteLine("average of odd numbers: " + averageOfOddNumbers);
+
+			foreach (int e in thirdList)
+			{
+				Console.WriteLine(e * e);
+			}
 
 			Console.ReadLine();
 
