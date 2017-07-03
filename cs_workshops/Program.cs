@@ -14,6 +14,12 @@ namespace ConsoleApp1
 			int[] n = { 1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14 };
 
 			IEnumerable<int> secondList = n.Where(y => y % 2 == 0);
+
+			foreach (int e in secondList)
+			{
+				Console.WriteLine(e);
+			}
+			Console.ReadLine();
 		}
 	}
 }
