@@ -30,9 +30,7 @@ namespace ConsoleApp1
 			}
 
 			Console.ReadLine();
-
-
-
+			
 		}
 	}
 }
