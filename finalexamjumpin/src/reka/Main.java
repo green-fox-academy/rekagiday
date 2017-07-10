@@ -11,7 +11,6 @@ public class Main {
     List<Integer> indexes = new ArrayList<>();
 
     for (int i = 0; i < text.length(); i++) {
-
       if (text.charAt(i) == charToFind) {
         indexes.add(i);
       }
@@ -20,8 +19,6 @@ public class Main {
   }
 
   public static void main(String[] args) {
-
-    System.out.println(letterCounter("almafa", 'a'));
-
+    System.out.println(letterCounter("asdadasdadadadasdadadasdaasdasdasdasdasdasd", 'a'));
   }
 }
